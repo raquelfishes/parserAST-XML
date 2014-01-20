@@ -1,0 +1,78 @@
+<FunctionDecl foo 'int (int)'>
+    <ParmVarDecl a 'int'></ParmVarDecl>
+    <CompoundStmt>
+        <ReturnStmt>
+            <ImplicitCastExpr 'int'>
+                <DeclRefExpr 'a' 'int'>
+                </DeclRefExpr>
+            </ImplicitCastExpr>
+        </ReturnStmt>
+    </CompoundStmt>
+</FunctionDecl>
+<FunctionDecl main 'int (void)'>
+    <CompoundStmt>
+    |-DeclStmt 0x1088948 <line:6:2, col:16>
+    | `-VarDecl 0x1088860 <col:2, col:15> i 'int'
+    |   `-CallExpr 0x1088928 <col:10, col:15> 'int'
+    |     |-ImplicitCastExpr 0x1088918 <col:10> 'int (*)(int)' <FunctionToPointerDecay>
+    |     | `-DeclRefExpr 0x10888e8 <col:10> 'int (int)' lvalue Function 0x10886b0 'foo' 'int (int)'
+    |     `-IntegerLiteral 0x10888c8 <col:14> 'int' 5
+    |-DeclStmt 0x10889a0 <line:7:2, col:7>
+    | `-VarDecl 0x1088970 <col:2, col:6> j 'int'
+    |-BinaryOperator 0x10889e8 <line:9:2, col:6> 'int' lvalue '='
+    | |-DeclRefExpr 0x10889b0 <col:2> 'int' lvalue Var 0x1088970 'j' 'int'
+    | `-IntegerLiteral 0x10889c8 <col:6> 'int' 0
+    |-WhileStmt 0x1088be8 <line:10:2, line:18:2>
+    | |-<<<NULL>>>
+    | |-BinaryOperator 0x1088a48 <line:10:9, col:11> '_Bool' '<'
+    | | |-ImplicitCastExpr 0x1088a38 <col:9> 'int' <LValueToRValue>
+    | | | `-DeclRefExpr 0x1088a00 <col:9> 'int' lvalue Var 0x1088970 'j' 'int'
+    | | `-IntegerLiteral 0x1088a18 <col:11> 'int' 7
+    | `-CompoundStmt 0x1088bd0 <col:13, line:18:2>
+    |   |-IfStmt 0x1088b80 <line:12:3, line:16:3>
+    |   | |-<<<NULL>>>
+    |   | |-BinaryOperator 0x1088ab0 <line:12:7, col:9> '_Bool' '<'
+    |   | | |-ImplicitCastExpr 0x1088a90 <col:7> 'int' <LValueToRValue>
+    |   | | | `-DeclRefExpr 0x1088a60 <col:7> 'int' lvalue Var 0x1088970 'j' 'int'
+    |   | | `-ImplicitCastExpr 0x1088aa0 <col:9> 'int' <LValueToRValue>
+    |   | |   `-DeclRefExpr 0x1088a78 <col:9> 'int' lvalue Var 0x1088860 'i' 'int'
+    |   | |-CompoundStmt 0x1088ac8 <col:12, line:14:3>
+    |   | `-CompoundStmt 0x1088b68 <col:8, line:16:3>
+    |   |   `-BinaryOperator 0x1088b50 <line:15:4, col:12> 'int' lvalue '='
+    |   |     |-DeclRefExpr 0x1088ad8 <col:4> 'int' lvalue Var 0x1088860 'i' 'int'
+    |   |     `-BinaryOperator 0x1088b38 <col:8, col:12> 'int' '+'
+    |   |       |-ImplicitCastExpr 0x1088b28 <col:8> 'int' <LValueToRValue>
+    |   |       | `-DeclRefExpr 0x1088af0 <col:8> 'int' lvalue Var 0x1088860 'i' 'int'
+    |   |       `-IntegerLiteral 0x1088b08 <col:12> 'int' 1
+    |   `-UnaryOperator 0x1088bb8 <line:17:3, col:4> 'int' postfix '++'
+    |     `-DeclRefExpr 0x1088b9c <col:3> 'int' lvalue Var 0x1088970 'j' 'int'
+    |-ForStmt 0x1088e88 <line:19:2, line:22:2>
+    | |-DeclStmt 0x1088c60 <line:19:7, col:16>
+    | | `-VarDecl 0x1088c10 <col:7, col:15> k 'int'
+    | |   `-IntegerLiteral 0x1088c40 <col:15> 'int' 0
+    | |-<<<NULL>>>
+    | |-BinaryOperator 0x1088d38 <col:18, col:27> '_Bool' '<'
+    | | |-ImplicitCastExpr 0x1088d28 <col:18> 'int' <LValueToRValue>
+    | | | `-DeclRefExpr 0x1088c70 <col:18> 'int' lvalue Var 0x1088c10 'k' 'int'
+    | | `-CallExpr 0x1088d08 <col:22, col:27> 'int'
+    | |   |-ImplicitCastExpr 0x1088cf8 <col:22> 'int (*)(int)' <FunctionToPointerDecay>
+    | |   | `-DeclRefExpr 0x1088ce0 <col:22> 'int (int)' lvalue Function 0x10886b0 'foo' 'int (int)'
+    | |   `-IntegerLiteral 0x1088cc0 <col:26> 'int' 5
+    | |-UnaryOperator 0x1088d68 <col:30, col:31> 'int' postfix '++'
+    | | `-DeclRefExpr 0x1088d50 <col:30> 'int' lvalue Var 0x1088c10 'k' 'int'
+    | `-CompoundStmt 0x1088e70 <col:34, line:22:2>
+    |   |-CompoundAssignOperator 0x1088dc0 <line:20:3, col:8> 'int' lvalue '+=' ComputeLHSTy='int' ComputeResultTy='int'
+    |   | |-DeclRefExpr 0x1088d7c <col:3> 'int' lvalue Var 0x1088860 'i' 'int'
+    |   | `-ImplicitCastExpr 0x1088db0 <col:8> 'int' <LValueToRValue>
+    |   |   `-DeclRefExpr 0x1088d94 <col:8> 'int' lvalue Var 0x1088970 'j' 'int'
+    |   `-BinaryOperator 0x1088e58 <line:21:3, col:11> 'int' lvalue '='
+    |     |-DeclRefExpr 0x1088de0 <col:3> 'int' lvalue Var 0x1088970 'j' 'int'
+    |     `-BinaryOperator 0x1088e40 <col:7, col:11> 'int' '+'
+    |       |-ImplicitCastExpr 0x1088e30 <col:7> 'int' <LValueToRValue>
+    |       | `-DeclRefExpr 0x1088df8 <col:7> 'int' lvalue Var 0x1088970 'j' 'int'
+    |       `-IntegerLiteral 0x1088e10 <col:11> 'int' 1
+    `-ReturnStmt 0x1088ed8 <line:23:2, col:9>
+      `-ImplicitCastExpr 0x1088ec8 <col:9> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x1088eac <col:9> 'int' lvalue Var 0x1088860 'i' 'int'
+    </CompoundStmt>
+</FunctionDecl>
